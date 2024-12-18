@@ -1,0 +1,76 @@
+﻿<Window x:Class="WPFStackCalc.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPFStackCalc"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="400" Width="400">
+    <Grid>
+        <StackPanel>
+            <TextBlock Text="{Binding displayText, UpdateSourceTrigger=PropertyChanged}" FontSize="32" TextAlignment="Right"
+                       Margin="5 0 5 0"/>
+            <TextBlock Text="{Binding displayResult, UpdateSourceTrigger=PropertyChanged}" FontSize="32" TextAlignment="Right" Margin="5 3 5 10"/>
+            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                <Button Content="1" Width="25" Height="25"
+                        HorizontalContentAlignment="Center"
+                        VerticalContentAlignment="Center" Click="One"/>
+                <Button Content="2" Width="25" Height="25"
+                        HorizontalContentAlignment="Center"
+                        VerticalContentAlignment="Center" Click="Two"/>
+                <Button Content="3" Width="25" Height="25"
+                        HorizontalContentAlignment="Center"
+                        VerticalContentAlignment="Center" Click="Tree"/>
+                <Button Content="4" Width="25" Height="25"
+                        HorizontalContentAlignment="Center"
+                        VerticalContentAlignment="Center" Click="Four"/>
+                <Button Content="5" Width="25" Height="25"
+                        HorizontalContentAlignment="Center"
+                        VerticalContentAlignment="Center" Click="Five"/>
+                <Button Content="6" Width="25" Height="25"
+                        HorizontalContentAlignment="Center"
+                        VerticalContentAlignment="Center" Click="Six"/>
+                <Button Content="7" Width="25" Height="25"
+                        HorizontalContentAlignment="Center"
+                        VerticalContentAlignment="Center" Click="Seven"/>
+                <Button Content="8" Width="25" Height="25"
+                        HorizontalContentAlignment="Center"
+                        VerticalContentAlignment="Center" Click="Eight"/>
+                <Button Content="9" Width="25" Height="25"
+                        HorizontalContentAlignment="Center"
+                        VerticalContentAlignment="Center" Click="Nine"/>
+                <Button Content="0" Width="25" Height="25"
+                        HorizontalContentAlignment="Center"
+                        VerticalContentAlignment="Center" Click="Zero"/>
+                <Button Content="&lt;" Width="25" Height="25"
+                        HorizontalContentAlignment="Center"
+                        VerticalContentAlignment="Center" Click="Delete"/>
+            </StackPanel>
+            <StackPanel Margin="0 10 0 0" HorizontalAlignment="Center" Orientation="Horizontal">
+                <Button Content="+" Width="25" Height="25" 
+                        HorizontalContentAlignment="Center"
+                        VerticalContentAlignment="Center" Click="Plus"/>
+                <Button Content="-" Width="25" Height="25"
+                        HorizontalContentAlignment="Center"
+                        VerticalContentAlignment="Center" Click="Minus"/>
+                <Button Content="x" Width="25" Height="25"
+                        HorizontalContentAlignment="Center"
+                        VerticalContentAlignment="Center" Click="Myl"/>
+                <Button Content="/" Width="25" Height="25"
+                        HorizontalContentAlignment="Center"
+                        VerticalContentAlignment="Center" Click="Div"/>
+                <Button Content="(" Width="25" Height="25"
+                        HorizontalContentAlignment="Center"
+                        VerticalContentAlignment="Center" Click="LeftBr"/>
+                <Button Content=")" Width="25" Height="25"
+                        HorizontalContentAlignment="Center"
+                        VerticalContentAlignment="Center" Click="RightBr"/>
+
+                <Button Content="=" Width="25" Height="25"
+                        HorizontalContentAlignment="Center" Margin="10 0 0 0"
+                        VerticalContentAlignment="Center" Click="Result"/>
+            </StackPanel>
+            
+        </StackPanel>
+    </Grid>
+</Window>
