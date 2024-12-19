@@ -9,6 +9,8 @@ namespace WPFStackCalc
     //Head class
     internal class StackCalcEx : ApplicationException { public StackCalcEx(string message) : base(message) { } }
 
+    //On convertion phase
+    internal class NullPriorityEx : StackCalcEx { public NullPriorityEx() : base("Given operator has no priority in AHelp class") { } }
     //Expression could not be converted
     internal class CantConvertEx : StackCalcEx { public CantConvertEx() : base("Given expression is invalid") { } }
     //Expression is divided by zero

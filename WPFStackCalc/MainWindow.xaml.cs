@@ -43,6 +43,8 @@ namespace WPFStackCalc
             }
         }
 
+        private Calc newCalc = new Calc();
+
         public MainWindow()
         {
             InitializeComponent();
@@ -76,78 +78,20 @@ namespace WPFStackCalc
         private void Minus(object sender, RoutedEventArgs e) { displayText += " - "; }
         private void Myl(object sender, RoutedEventArgs e) { displayText += " * "; }
         private void Div(object sender, RoutedEventArgs e) { displayText += " / "; }
-        private void LeftBr(object sender, RoutedEventArgs e) { displayText += "("; }
-        private void RightBr(object sender, RoutedEventArgs e) { displayText += ")"; }
+        private void LeftBr(object sender, RoutedEventArgs e) { displayText += "( "; }
+        private void RightBr(object sender, RoutedEventArgs e) { displayText += " )"; }
 
         private void Result(object sender, RoutedEventArgs e) 
         {
             try
             {
-                InputConvert();
+                displayResult = newCalc.AUTOIdentify(displayText);
             }
             catch (Exception ex) 
             {
                 MessageBox.Show(ex.Message);
             }
         }
-
-        private void InputConvert()
-        {
-            if (displayText.Contains(" / 0")) { throw new DividedByZeroEx(); }
-            string expression = displayText + " ";
-
-            Stack<string> newStack = new Stack<string>();
-            string sign = "";
-            string operation = "";
-            for (int i = 0; i < expression.Length; i++)
-            {
-                if (expression[i] == '+' || expression[i] == '-' || expression[i] == '*' || expression[i] == '/')
-                {
-                    operation = expression[i].ToString();
-                    i += 1;
-                }
-                else if (expression[i] != ' ') { sign += expression[i]; }
-                else
-                {
-                    newStack.Push(sign);
-                    if (operation != "") { newStack.Push(operation); }
-                    sign = "";
-                    operation = "";
-                }
-            }
-            string res = "";
-            foreach (string element in newStack.Reverse())
-            {
-                res += element + " ";
-            }
-            Input(res);
-        }
-
-        private void Input(string ex)
-        {
-            string expression = ex;
-            CStack newStack = new CStack();
-            string sign = "";
-            for (int i = 0; i < expression.Length; i++)
-            {
-                if (expression[i] != ' ') { sign += expression[i]; }
-                else
-                {
-                    newStack.Push(sign);
-                    sign = "";
-                }
-            }
-
-            string result = "";
-            Node current = newStack.head;
-            while (current != null)
-            {
-                result += current.data;
-                current = current.next;
-            }
-            displayResult = result;
-        }
-
 
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged([CallerMemberName] string prop = "")

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.Xml;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -12,13 +13,7 @@ namespace WPFStackCalc
 
         public void Push(string data)
         {
-            if (!Single.TryParse(data, out float result))
-            {
-                Fabric fabric = new Fabric(data);
-                IOperation operation = fabric.GetOperation();
-                operation.Run(this);
-                return;
-            }
+            float result = Single.Parse(data);
             if (head == null)
             {
                 head = new Node(result);
@@ -36,6 +31,11 @@ namespace WPFStackCalc
             head = head.next;
             current.next = null;
             return current;
+        }
+        public Node Peek()
+        {
+            if (head == null) { return null; }
+            return head;
         }
 
         public void Print()

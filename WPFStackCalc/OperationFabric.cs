@@ -4,31 +4,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace WPFStackCalc
 {
     internal abstract class OperationFabric
     {
-        public abstract IOperation GenerateOperation();
+        public abstract IOperation GenerateOperation(string key);
 
-        public IOperation GetOperation()
+        public IOperation GetOperation(string key)
         {
-            return this.GenerateOperation();
+            return this.GenerateOperation(key);
         }
     }
 
     internal class Fabric : OperationFabric
     {
-        private string key;
 
-        public Fabric(string k)
+        public override IOperation GenerateOperation(string key)
         {
-            this.key = k;
-        }
-
-        public override IOperation GenerateOperation()
-        {
-            switch (this.key)
+            switch (key)
             {
                 case "+":
                     return new Plus();

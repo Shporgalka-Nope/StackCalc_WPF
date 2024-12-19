@@ -8,6 +8,6 @@ namespace WPFStackCalc
 {
     internal interface IOperation
     {
-        void Run(CStack stack);
+        void Run(Stack<float> stack);
     }
 }

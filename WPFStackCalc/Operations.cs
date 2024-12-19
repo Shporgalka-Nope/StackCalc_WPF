@@ -9,69 +9,69 @@ namespace WPFStackCalc
     
     internal class Plus : IOperation
     {
-        public void Run(CStack stack)
+        public void Run(Stack<float> stack)
         {
-            Node elementTwo = stack.Pop();
-            Node elementOne = stack.Pop();
-            float result = elementOne.data + elementTwo.data;
-            stack.Push(result.ToString());
+            float elementTwo = stack.Pop();
+            float elementOne = stack.Pop();
+            float result = elementOne + elementTwo;
+            stack.Push(result);
         }
     }
 
     internal class Minus : IOperation
     {
-        public void Run(CStack stack)
+        public void Run(Stack<float> stack)
         {
-            Node elementTwo = stack.Pop();
-            Node elementOne = stack.Pop();
+            float elementTwo = stack.Pop();
+            float elementOne = stack.Pop();
             float result;
             try
             {
-                result = elementOne.data - elementTwo.data;
+                result = elementOne - elementTwo;
             }
             catch (Exception ex) 
             {
                 throw new InvalidOperationEx();
             }
-            stack.Push(result.ToString());
+            stack.Push(result);
         }
     }
 
     internal class Myltiplication : IOperation
     {
-        public void Run(CStack stack)
+        public void Run(Stack<float> stack)
         {
-            Node elementTwo = stack.Pop();
-            Node elementOne = stack.Pop();
+            float elementTwo = stack.Pop();
+            float elementOne = stack.Pop();
             float result;
             try
             {
-                result = elementOne.data * elementTwo.data;
+                result = elementOne * elementTwo;
             }
             catch (Exception ex)
             {
                 throw new InvalidOperationEx();
             }
-            stack.Push(result.ToString());
+            stack.Push(result);
         }
     }
 
     internal class Division : IOperation
     {
-        public void Run(CStack stack)
+        public void Run(Stack<float> stack)
         {
-            Node elementTwo = stack.Pop();
-            Node elementOne = stack.Pop();
+            float elementTwo = stack.Pop();
+            float elementOne = stack.Pop();
             float result;
             try
             {
-                result = elementOne.data / elementTwo.data;
+                result = elementOne / elementTwo;
             }
             catch (Exception ex) 
             {
                 throw new InvalidOperationEx();
             }
-            stack.Push(result.ToString());
+            stack.Push(result);
         }
     }
 }
