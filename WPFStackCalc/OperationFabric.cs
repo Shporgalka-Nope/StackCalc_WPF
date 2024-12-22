@@ -33,6 +33,8 @@ namespace WPFStackCalc
                     return new Myltiplication();
                 case "/":
                     return new Division();
+                case "^":
+                    return new Sqrt();
                 default:
                     throw new CantConvertEx();
             }

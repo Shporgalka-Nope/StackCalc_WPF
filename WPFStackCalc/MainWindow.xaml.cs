@@ -80,6 +80,7 @@ namespace WPFStackCalc
         private void Div(object sender, RoutedEventArgs e) { displayText += " / "; }
         private void LeftBr(object sender, RoutedEventArgs e) { displayText += "( "; }
         private void RightBr(object sender, RoutedEventArgs e) { displayText += " )"; }
+        private void Sqrt(object sender, RoutedEventArgs e) { displayText += " ^"; }
 
         private void Result(object sender, RoutedEventArgs e) 
         {

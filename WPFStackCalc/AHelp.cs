@@ -23,6 +23,8 @@ namespace WPFStackCalc
                     return 0;
                 case ")":
                     return 3;
+                case "^":
+                    return 999999;
                 default:
                     throw new NullPriorityEx();
             }

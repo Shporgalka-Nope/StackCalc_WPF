@@ -74,4 +74,23 @@ namespace WPFStackCalc
             stack.Push(result);
         }
     }
+
+    internal class Sqrt : IOperation
+    {
+        public void Run(Stack<float> stack)
+        {
+            float elementOne = stack.Pop();
+            double dbl = elementOne;
+            float result;
+            try
+            {
+                result = (float)Math.Sqrt(dbl);
+            }
+            catch (Exception ex)
+            {
+                throw new InvalidOperationEx();
+            }
+            stack.Push(result);
+        }
+    }
 }
